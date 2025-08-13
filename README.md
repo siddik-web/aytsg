@@ -1,6 +1,7 @@
 # Advanced YouTube Script Generator (v2.html)
 
 This project provides an advanced YouTube script generator, leveraging AI models (OpenAI, Gemini, and Ollama) to help users create engaging video scripts. The `v2.html` file is the main application interface.
+<img width="1920" height="1769" alt="image" src="https://github.com/user-attachments/assets/211e7400-c4ec-4598-8f1f-5932d6b5f3ea" />
 
 ## Features
 
