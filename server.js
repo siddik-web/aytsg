@@ -77,7 +77,9 @@ app.post('/api/ollama/generate', async (req, res) => {
                 }
             })
         });
-        const data = await ollamaResponse.json();
+        const rawOllamaResponse = await ollamaResponse.text();
+        console.error('Raw Ollama API response (generate):', rawOllamaResponse);
+        const data = JSON.parse(rawOllamaResponse);
         res.json(data);
     } catch (error) {
         console.error('Error proxying to Ollama:', error);
@@ -89,7 +91,9 @@ app.post('/api/ollama/generate', async (req, res) => {
 app.get('/api/ollama/tags', async (req, res) => {
     try {
         const ollamaResponse = await fetch('http://localhost:11434/api/tags');
-        const data = await ollamaResponse.json();
+        const rawOllamaResponse = await ollamaResponse.text();
+        console.error('Raw Ollama API response (tags):', rawOllamaResponse);
+        const data = JSON.parse(rawOllamaResponse);
         res.json(data);
     } catch (error) {
         console.error('Error proxying to Ollama:', error);
