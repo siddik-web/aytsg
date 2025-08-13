@@ -63,7 +63,7 @@ app.post('/api/ollama/generate', async (req, res) => {
     const { model, prompt, temperature, max_tokens, ollamaBaseUrl } = req.body;
 
     try {
-        const ollamaResponse = await fetch(`http://localhost:11434/api/generate`, {
+        const ollamaResponse = await fetch(`${ollamaBaseUrl}/api/generate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,6 +72,7 @@ app.post('/api/ollama/generate', async (req, res) => {
                 model,
                 prompt,
                 temperature,
+                stream: false,
                 options: {
                     num_predict: max_tokens
                 }
